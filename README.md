@@ -23,7 +23,7 @@ Ao tocar em um item, deve abrir no browser a página do Pull Request em questão
 
 Você pode se basear neste mockup para criar as telas:
 
-![mockup](https://raw.githubusercontent.com/hostaraguaia/Desafio-Hostaraguaia-Flutter-Git/master/mockup-android.png)
+![mockup](https://raw.githubusercontent.com/hostaraguaia/desafio-flutter/master/mockup-android.png)
 
 Sua aplicação deve:
 
