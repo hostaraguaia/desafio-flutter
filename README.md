@@ -19,7 +19,7 @@ Cada repositório deve exibir nome, descrição , nome / foto do autor, número 
 
 Ao tocar em um item, deve levar a lista de Pull Requests do repositório. Cada item da lista deve exibir nome / foto do autor do PR, título do PR, data do PR e body do PR.
 
-Ao tocar em um item, deve abrir no browser a página do Pull Request em questão.
+Ao tocar em um item, deve a tela com a página do Pull Request em questão.
 
 Você pode se basear neste mockup para criar as telas:
 
