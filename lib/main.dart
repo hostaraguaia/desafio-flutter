@@ -13,7 +13,7 @@ void main() async {
   setupInjection();
 
   await Hive.initFlutter();
-  await Hive.deleteFromDisk();
+  // await Hive.deleteFromDisk();
 
   runApp(
     MainWidget(
