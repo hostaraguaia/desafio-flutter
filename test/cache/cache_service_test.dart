@@ -15,7 +15,7 @@ void main() {
     Hive.deleteFromDisk();
   });
 
-  test('should handle cache successfully', () async {
+  test('should handle cache', () async {
     const shoppingCartKey = 'shopping_cart';
     final shoppingCartItems = [
       {'name': 'notebook'},
@@ -28,7 +28,7 @@ void main() {
     expect(shoppingCartData, equals(shoppingCartItems));
   });
 
-  test('should handle cache failed', () async {
+  test('should not handle cache', () async {
     const shoppingCartKey = 'shopping_cart';
     final shoppingCartItems = <Map<String, dynamic>>[];
     await cacheService.create(shoppingCartKey, shoppingCartItems);
