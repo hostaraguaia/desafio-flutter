@@ -21,7 +21,7 @@ class GithubPullEntity {
       title: map['title'] ?? '',
       body: map['body'] ?? '',
       state: map['state'] ?? '',
-      user: GithubUserEntity.fromMap(map['user']),
+      user: GithubUserEntity.fromMap(map['user'] ?? {}),
     );
   }
 }

@@ -24,7 +24,7 @@ class GithubRepoEntity {
       description: map['description'] ?? '',
       forks: map['forks_count'] ?? 0,
       stars: map['stargazers_count'] ?? 0,
-      user: GithubUserEntity.fromMap(map['owner']),
+      user: GithubUserEntity.fromMap(map['owner'] ?? {}),
     );
   }
 }
