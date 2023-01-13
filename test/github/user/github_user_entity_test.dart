@@ -10,13 +10,13 @@ void main() {
     emptyData = {};
   });
 
-  test('should parse map to entity', () async {
+  test('should parse map to user entity', () async {
     final entity = GithubUserEntity.fromMap(data);
     expect(entity, isA<GithubUserEntity>());
     expect(entity.id, equals(10));
   });
 
-  test('should parse empty map to entity', () async {
+  test('should parse empty map to empty user entity', () async {
     final entity = GithubUserEntity.fromMap(emptyData);
     expect(entity, isA<GithubUserEntity>());
     expect(entity.id, equals(0));

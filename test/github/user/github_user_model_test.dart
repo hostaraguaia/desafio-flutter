@@ -11,13 +11,13 @@ void main() {
     emptyEntity = const GithubUserEntity(id: 0, username: '', type: '', avatarUrl: '');
   });
 
-  test('should parse entity to model', () async {
+  test('should parse user entity to user model', () async {
     final model = GithubUserModel.fromEntity(entity);
     expect(model, isA<GithubUserModel>());
     expect(model.username, equals('user'));
   });
 
-  test('should parse empty entity to model', () async {
+  test('should parse empty user entity to empty user model', () async {
     final model = GithubUserModel.fromEntity(emptyEntity);
     expect(model, isA<GithubUserModel>());
     expect(model.username, equals(''));
