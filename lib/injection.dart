@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import 'api/api_service_github.dart';
 import 'cache/cache_service_hive.dart';
 import 'github/pull/github_pull_repository_default.dart';
 import 'github/pull/list/github_pull_list_cubit.dart';
@@ -12,11 +13,12 @@ final getIt = GetIt.instance;
 
 void setupInjection() {
   // Services
+  getIt.registerSingleton(ApiServiceGithub());
   getIt.registerSingleton(CacheServiceHive());
 
   // Repositories
-  getIt.registerSingleton(GithubRepoRepositoryDefault(getIt.get<CacheServiceHive>()));
-  getIt.registerSingleton(GithubPullRepositoryDefault(getIt.get<CacheServiceHive>()));
+  getIt.registerSingleton(GithubRepoRepositoryDefault(getIt.get<ApiServiceGithub>(), getIt.get<CacheServiceHive>()));
+  getIt.registerSingleton(GithubPullRepositoryDefault(getIt.get<ApiServiceGithub>(), getIt.get<CacheServiceHive>()));
 
   // Usecases
   getIt.registerSingleton(GithubRepoListUsecaseDefault(getIt.get<GithubRepoRepositoryDefault>()));
