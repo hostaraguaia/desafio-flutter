@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/theme_app.dart';
@@ -22,10 +23,10 @@ class GithubUserWidget extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(ThemeApp.padding / 4),
               child: ClipOval(
-                child: Image.network(
-                  user.avatarUrl,
-                  loadingBuilder: (context, child, loadingProgress) => loadingProgress == null ? child : const CircularProgressIndicator(),
-                  errorBuilder: (context, error, stackTrace) => const Icon(Icons.person),
+                child: CachedNetworkImage(
+                  imageUrl: user.avatarUrl,
+                  progressIndicatorBuilder: (context, url, downloadProgress) => CircularProgressIndicator(value: downloadProgress.progress),
+                  errorWidget: (_, __, ___) => const Icon(Icons.person),
                 ),
               ),
             ),
