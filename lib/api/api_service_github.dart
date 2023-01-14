@@ -20,8 +20,8 @@ class ApiServiceGithub extends ApiService {
         ),
       );
       return json.decode(json.encode(response.data));
-    } on DioError catch (e) {
-      throw ApiServiceError(e.message);
+    } catch (e) {
+      throw ApiServiceError(e.toString());
     }
   }
 }
