@@ -76,7 +76,20 @@ class _GithubRepoPageState extends State<GithubRepoPage> {
               bloc: widget.githubRepoListCubit,
               builder: (context, state) {
                 if (state.isLoading) return const Center(child: CircularProgressIndicator());
-                if (state.isFailure) return Center(child: Text(state.message));
+                if (state.isFailure) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(state.message),
+                      const SizedBox(height: ThemeApp.verticalSpacer),
+                      ElevatedButton.icon(
+                        icon: const Icon(Icons.replay_outlined),
+                        label: const Text('Tentar novamente'),
+                        onPressed: () => widget.githubRepoListCubit.execute(const GithubRepoListInput('dart', '10', '1')),
+                      )
+                    ],
+                  );
+                }
                 return ListView.builder(
                   itemCount: state.output.repos.length,
                   itemBuilder: (context, index) => GithubRepoWidget(
