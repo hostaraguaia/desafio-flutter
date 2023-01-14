@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 
+import '../../../api/api_service_error.dart';
 import 'github_repo_list_input.dart';
 import 'github_repo_list_state.dart';
 import 'github_repo_list_usecase.dart';
@@ -17,7 +17,7 @@ class GithubRepoListCubit extends Cubit<GithubRepoListState> {
       emit(GithubRepoListState.loading());
       final output = await githubRepoListUsecase.execute(input);
       emit(GithubRepoListState.success(output));
-    } on DioError catch (e) {
+    } on ApiServiceError catch (e) {
       emit(GithubRepoListState.failure(e.message));
     }
   }
